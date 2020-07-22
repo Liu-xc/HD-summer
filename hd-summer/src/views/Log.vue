@@ -1,0 +1,106 @@
+<template>
+  <el-container class="container">
+    <el-header>
+      <h1 class="title">登录</h1>
+    </el-header>
+    <el-main class="center-form">
+      <el-row type="flex" justify="center">
+        <el-col :span="7">
+          <el-form
+            :model="ruleForm"
+            status-icon
+            :rules="rules"
+            ref="ruleForm"
+            label-width="100px"
+            class="demo-ruleForm"
+          >
+            <el-form-item label="用户名" prop="username">
+              <el-input v-model="ruleForm.username"></el-input>
+            </el-form-item>
+            <el-form-item label="密码" prop="pass">
+              <el-input type="password" v-model="ruleForm.pass" autocomplete="off"></el-input>
+            </el-form-item>
+            <el-form-item>
+              <el-row type="flex" justify="end">
+                <el-col :span="9">
+                  <el-button type="primary" @click="submitForm('ruleForm')">登录</el-button>
+                  <el-button @click="resetForm('ruleForm')">重置</el-button>
+                </el-col>
+              </el-row>
+            </el-form-item>
+          </el-form>
+        </el-col>
+      </el-row>
+    </el-main>
+  </el-container>
+</template>
+
+<script>
+export default {
+  name: 'Log',
+  data () {
+    return {
+      ruleForm: {
+        pass: '',
+        checkPass: '',
+        username: ''
+      },
+      rules: {
+        pass: [
+          { validator: this._validatePass, trigger: 'blur' }
+        ],
+        checkPass: [
+          { validator: this._validatePass2, trigger: 'blur' }
+        ],
+        username: [
+          { validator: this._checkeUsername, trigger: 'blur' }
+        ]
+      }
+    }
+  },
+  methods: {
+    submitForm (formName) {
+      this.$refs[formName].validate((valid) => {
+        if (valid) {
+          alert('submit!')
+        } else {
+          console.log('error submit!!')
+          return false
+        }
+      })
+    },
+    resetForm (formName) {
+      this.$refs[formName].resetFields()
+    },
+
+    _checkeUsername (rule, value, callback) {
+      if (!value) {
+        return callback(new Error('用户名不能为空'))
+      }
+    },
+    _validatePass (rule, value, callback) {
+      if (value === '') {
+        callback(new Error('请输入密码'))
+      } else {
+        if (this.ruleForm.checkPass !== '') {
+          this.$refs.ruleForm.validateField('checkPass')
+        }
+        callback()
+      }
+    }
+  }
+}
+</script>
+
+<style lang="stylus" scoped>
+.container
+  width 100%
+  min-width 1000px
+  overflow hidden
+  padding-top 20vh
+
+  .title
+    text-align center
+    position relative
+    left 30px
+</style>
