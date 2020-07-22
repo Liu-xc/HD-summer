@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./CSS/bootstrap.min.css">
+
+    <title>Title</title>
+</head>
+
+<body>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Controller</h1>
+        </div>
+    </div>
+    <main class="container">
+        <p class="lead">删除用户</p>
+        <form class="form-inline">
+            <div class="form-group mb-2">
+                <input type="password" class="form-control" id="inputPassword2" placeholder="用户ID">
+            </div>
+            <button type="submit" class="btn btn-danger mb-2 ml-2">删除</button>
+        </form>
+        <!-- <form method="post" action="/delete">
+            <label for="userid">用户ID</label>
+            <input type="text" class="form-control" name="id" id="userid">
+            <button type="submit" class="btn btn-danger btn-sm ">删除</button>
+        </form> -->
+        <a type="button" href="/getUser" class="btn btn-primary btn-lg text-light mt-4">展示所有用户</a>
+    </main>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="./JS/jQuery.slim.min.js"></script>
+    <script src="./JS/popper.min.js"></script>
+    <script src="./JS/bootstrap.min.js"></script>
+</body>
+
+</html>
