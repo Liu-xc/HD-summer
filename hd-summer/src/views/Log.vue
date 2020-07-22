@@ -20,10 +20,18 @@
             <el-form-item label="密码" prop="pass">
               <el-input type="password" v-model="ruleForm.pass" autocomplete="off"></el-input>
             </el-form-item>
+            <el-form-item label="身份">
+              <el-radio-group v-model="ruleForm.radio">
+                <el-radio :label="1">消防</el-radio>
+                <el-radio :label="2">司法</el-radio>
+                <el-radio :label="3">鉴定</el-radio>
+                <el-radio :label="4">管理员</el-radio>
+              </el-radio-group>
+            </el-form-item>
             <el-form-item>
-              <el-row type="flex" justify="end">
+              <el-row type="flex" justify="center">
                 <el-col :span="9">
-                  <el-button type="primary" @click="submitForm('ruleForm')">登录</el-button>
+                  <el-button type="primary" @click="submitForm('ruleForm')">提交</el-button>
                   <el-button @click="resetForm('ruleForm')">重置</el-button>
                 </el-col>
               </el-row>
@@ -43,7 +51,8 @@ export default {
       ruleForm: {
         pass: '',
         checkPass: '',
-        username: ''
+        username: '',
+        radio: 1
       },
       rules: {
         pass: [
