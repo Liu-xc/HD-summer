@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./CSS/bootstrap.min.css">
+
+  <title>注册</title>
+</head>
+
+<body>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4 text-center">注册</h1>
+    </div>
+  </div>
+  <form class="container col-4 mt-5" method="POST" action="/checkUser">
+    <div class="form-group">
+      <label for="UID">用户ID</label>
+      <input type="text" name="id" class="form-control" id="UID" required>
+    </div>
+    <div class="form-group">
+      <label for="password">密码</label>
+      <input type="password" class="form-control" id="password" required>
+    </div>
+    <div class="form-group">
+      <label for="checkPassword">确认密码</label>
+      <input type="password" class="form-control" id="checkPassword" required>
+    </div>
+
+    <label for="" class="pt-2 pr-4">身份</label>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="type" id="inlineRadio1" value="消防" required>
+      <label class="form-check-label" for="inlineRadio1">消防</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="type" id="inlineRadio2" value="司法">
+      <label class="form-check-label" for="inlineRadio2">司法</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="type" id="inlineRadio3" value="技术">
+      <label class="form-check-label" for="inlineRadio3">技术</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="type" id="inlineRadio4" value="管理员">
+      <label class="form-check-label" for="inlineRadio4">管理员</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="type" id="inlineRadio5" value="用户">
+      <label class="form-check-label" for="inlineRadio5">用户</label>
+    </div>
+    <div class="form-group mt-3 offset-9">
+      <button type="submit" class="btn btn-primary" id="submit">提交</button>
+      <button type="reset" class="btn btn-dark">重置</button>
+    </div>
+  </form>
+
+  <button type="button" id="modalTrigger" hidden class="btn btn-primary" data-toggle="modal" data-target="#alertModal">
+  </button>
+  <div class="modal fade" id="alertModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">提示</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          两次密码不一致，请检查输入是否正确
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="./JS/jQuery.slim.min.js"></script>
+  <script src="./JS/popper.min.js"></script>
+  <script src="./JS/bootstrap.min.js"></script>
+  <script>
+    $('#submit').click(() => {
+      const password = $('#password').val()
+      const checkPassword = $('#checkPassword').val()
+      if (password !== checkPassword) {
+        event.preventDefault()
+        $('#modalTrigger').trigger('click')
+      }
+    })
+  </script>
+</body>
+
+</html>

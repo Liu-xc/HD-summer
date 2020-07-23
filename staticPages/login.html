@@ -15,35 +15,35 @@
             <h1 class="display-4 text-center">登录</h1>
         </div>
     </div>
-    <form class="container col-4 mt-5">
+    <form class="container col-4 mt-5" method="POST" action="/checkUser">
         <div class="form-group">
-            <label for="exampleInputEmail1">用户名</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <label for="UID">用户ID</label>
+            <input type="text" name="id" class="form-control" id="UID" required>
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">密码</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
+            <input type="password" class="form-control" id="exampleInputPassword1" required>
         </div>
 
         <label for="" class="pt-2 pr-4">身份</label>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+            <input class="form-check-input" type="radio" name="type" id="inlineRadio1" value="消防" required>
             <label class="form-check-label" for="inlineRadio1">消防</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+            <input class="form-check-input" type="radio" name="type" id="inlineRadio2" value="司法">
             <label class="form-check-label" for="inlineRadio2">司法</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option2">
+            <input class="form-check-input" type="radio" name="type" id="inlineRadio3" value="技术">
             <label class="form-check-label" for="inlineRadio3">技术</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option2">
+            <input class="form-check-input" type="radio" name="type" id="inlineRadio4" value="管理员">
             <label class="form-check-label" for="inlineRadio4">管理员</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="option2">
+            <input class="form-check-input" type="radio" name="type" id="inlineRadio5" value="用户">
             <label class="form-check-label" for="inlineRadio5">用户</label>
         </div>
         <div class="form-group mt-3 offset-9">
