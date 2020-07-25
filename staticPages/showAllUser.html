@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./CSS/bootstrap.min.css">
+
+  <title>Users</title>
+</head>
+
+<body>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Users</h1>
+    </div>
+  </div>
+
+  <div class="container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">用户ID</th>
+          <th scope="col">类别</th>
+          <th scope="col">密码</th>
+          <th scope="col">身份证</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="user:${users}">
+          <td>
+            <span th:text="${user.uid}"></span>
+          </td>
+          <td>
+            <span th:text="${user.utype}"></span>
+          </td>
+          <td>
+            <span th:text="${user.upassword}"></span>
+          </td>
+          <td>
+            <span th:text="${user.unumber}"></span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="./JS/jQuery.slim.min.js"></script>
+  <script src="./JS/popper.min.js"></script>
+  <script src="./JS/bootstrap.min.js"></script>
+</body>
+
+</html>

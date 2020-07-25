@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./CSS/bootstrap.min.css">
+
+  <title>Rent</title>
+</head>
+
+<body>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">设备借用记录</h1>
+    </div>
+  </div>
+
+  <div class="container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">物品</th>
+          <th scope="col">物品ID</th>
+          <th scope="col">消防员ID</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="rent:${rent}">
+          <td>
+            <span th:text="${rent.Object}"></span>
+          </td>
+          <td>
+            <span th:text="${rent.oid}"></span>
+          </td>
+          <td>
+            <span th:text="${rent.uid}"></span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="./JS/jQuery.slim.min.js"></script>
+  <script src="./JS/popper.min.js"></script>
+  <script src="./JS/bootstrap.min.js"></script>
+</body>
+
+</html>

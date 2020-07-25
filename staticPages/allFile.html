@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./CSS/bootstrap.min.css">
+
+  <title>Files</title>
+</head>
+
+<body>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Files</h1>
+    </div>
+  </div>
+  <div class="container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">文件名</th>
+          <th scope="col">大小</th>
+          <th scope="col">类型</th>
+          <th scope="col">路径</th>
+          <th scope="col">用户ID</th>
+          <th scope="col">下载</th>
+          <th scope="col">删除</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="file:${files}">
+          <td>
+            <!--/*@thymesVar id="id" type="java.lang.Integer"*/-->
+            <span th:text="${file.id}"></span> </td>
+          <td>
+            <!--/*@thymesVar id="t_name" type="java.lang.String"*/-->
+            <span th:text="${file.f_name}"> </span></td>
+          <td><span th:text="${file.size}">
+            </span></td>
+          <td><span th:text="${file.type}">
+            </span></td>
+          <td><span th:text="${file.path}">
+            </span></td>
+          <td><span th:text="${file.uid}">
+            </span></td>
+          <td>
+            <a th:href="@{/file/download(id=${file.id})}" class="btn btn-sm btn-primary">下载</a>
+          </td>
+          <td>
+            <a th:href="@{/file/delete(id=${file.id})}" class="btn btn-sm btn-warning">删除</a>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+
+  </div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="./JS/jQuery.slim.min.js"></script>
+  <script src="./JS/popper.min.js"></script>
+  <script src="./JS/bootstrap.min.js"></script>
+</body>
+
+</html>

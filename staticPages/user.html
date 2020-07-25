@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./CSS/bootstrap.min.css">
+
+  <title>User</title>
+</head>
+
+<body>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">用户中心</h1>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="toast hide position-absolute" style="right: 35%;" id="toast" role="alert" aria-live="assertive"
+      aria-atomic="true" data-delay="3000">
+      <div class="toast-header">
+        <strong class="mr-auto">上传</strong>
+        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="toast-body">
+        文件上传成功！
+      </div>
+    </div>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="upload" class="h4 my-3">文件上传</label>
+        <input type="file" class="form-control-file" name="fileName" id="upload">
+      </div>
+      <button type="submit" id="subFile" class="btn btn-primary">提交</button>
+      <a href="/addFile" id="addFile"></a>
+    </form>
+
+    <form class="form-inline" action="/getFid" method="POST">
+      <legend class="mt-5 mb-3">查询文件审核进度</legend>
+      <div class="form-group">
+        <label for="inputPassword2" class="sr-only">你的ID</label>
+        <input type="password" class="form-control" name="uid" id="inputPassword2" placeholder="Password">
+      </div>
+      <button type="submit" class="btn btn-primary ml-2">查询</button>
+    </form>
+
+    <table class="table table-striped mt-5">
+      <thead>
+        <tr>
+          <th scope="col">文件id</th>
+          <th scope="col">反馈信息</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="feedback:${feedback}">
+          <td>
+            <span th:text="${feedback.fid}"></span>
+          </td>
+          <td>
+            <span th:text="${feedback.msg}">如果出现这条信息说明没有反馈信息</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="./JS/jQuery.slim.min.js"></script>
+  <script src="./JS/popper.min.js"></script>
+  <script src="./JS/bootstrap.min.js"></script>
+  <script>
+    $('#subFile').click(() => {
+      event.preventDefault()
+      setTimeout(() => {
+        $('#toast').toast('show')
+        setTimeout(() => {
+          $('#addFile')[0].click()
+        }, 700)
+      }, 500)
+    })
+  </script>
+</body>
+
+</html>
