@@ -35,7 +35,7 @@
         <input type="file" class="form-control-file" name="fileName" id="upload">
       </div>
       <button type="submit" id="subFile" class="btn btn-primary">提交</button>
-      <a href="/addFile" id="addFile"></a>
+      <a href="/addFile" id="addFile">提交完成点击这里</a>
     </form>
 
     <div th:text="msg"></div>
@@ -73,14 +73,14 @@
   <script src="./JS/popper.min.js"></script>
   <script src="./JS/bootstrap.min.js"></script>
   <script>
-    $('#subFile').click(() => {
-      setTimeout(() => {
-        $('#toast').toast('show')
-        setTimeout(() => {
-          $('#addFile')[0].click()
-        }, 700)
-      }, 500)
-    })
+    // $('#subFile').click(() => {
+    //   setTimeout(() => {
+    //     $('#toast').toast('show')
+    //     setTimeout(() => {
+    //       $('#addFile')[0].click()
+    //     }, 700)
+    //   }, 500)
+    // })
   </script>
 </body>
 
